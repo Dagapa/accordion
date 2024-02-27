@@ -2,6 +2,11 @@ import dataAccordion from "../dataAccordion";
 import { useState } from "react";
 import "./accordion.css";
 
+// -Todo - estudiar para que sirve display en css
+// -Todo - estudiar los tipos de medidas en css. (absolutas y relativas)
+// -Todo - dejar fijo el recuadro blanco
+// -Todo - validar la logica de cuando tengo un elemento abierto y selecciono otro deberia cerrar el elemento abierto y abrir el nuevo elemento seleccionado.
+
 export const Accordion = () => {
   const [isOpenBox, setIsOpenBox] = useState(false);
   const [currentOption, setIsCurrentOption] = useState("");
