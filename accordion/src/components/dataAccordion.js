@@ -1,5 +1,4 @@
-export const dataAccordion = [
-
+const dataAccordion = [
     {
         titulo: 'titulo 1',
         parrafo: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus"
@@ -17,3 +16,5 @@ export const dataAccordion = [
         parrafo: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus"
     }
 ];
+
+export default dataAccordion;

@@ -1,0 +1,31 @@
+.accordion {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  color: black;
+  padding: 30px;
+  min-height: 400px;
+}
+
+.accordion-items {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.elemento-container {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.titulo-contenedor {
+  display: flex;
+  justify-content: space-between;
+}
+
+.open-items {
+  cursor: pointer;
+}
+
+.parrafo {}

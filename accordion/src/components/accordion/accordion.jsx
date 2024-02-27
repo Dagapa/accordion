@@ -1,0 +1,36 @@
+import dataAccordion from "../dataAccordion";
+import { useState } from "react";
+import "./accordion.css";
+
+export const Accordion = () => {
+  const [isOpenBox, setIsOpenBox] = useState(false);
+  const [currentOption, setIsCurrentOption] = useState("");
+
+  const handleSelectItem = (elemento) => {
+    setIsOpenBox((prev) => !prev);
+    setIsCurrentOption(elemento)
+  }
+
+  return (
+    <div className="accordion">
+      <h1>FAQ</h1>
+      <div className="accordion-items">
+        {dataAccordion.map((elemento, index) => {
+          return (
+            <div key={index} className="elemento-container">
+              <div className="titulo-contenedor">
+                <h3>{elemento.titulo}</h3>
+                <p className="open-items" onClick={() => handleSelectItem(elemento.titulo)}>+</p>
+              </div>
+              {(isOpenBox && currentOption === elemento.titulo) && (
+                <div className="parrafo">
+                  <p>{elemento.parrafo}</p>
+                </div>
+              )}
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+};
