@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
 .accordion {
   display: flex;
   flex-direction: column;
@@ -5,27 +7,49 @@
   color: black;
   padding: 30px;
   min-height: 400px;
+  font-family: "Work Sans";
 }
 
 .accordion-items {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  font-size: small;
 }
 
 .elemento-container {
   display: flex;
   flex-direction: column;
   gap: 5px;
+  border-bottom: 1px solid #efeded;
+  padding-bottom: 20px;
 }
 
 .titulo-contenedor {
   display: flex;
   justify-content: space-between;
+  color: #351939;
+
 }
 
 .open-items {
   cursor: pointer;
 }
 
-.parrafo {}
+.open-items {
+  display: flex;
+  background-color: #b42af6;
+  color: white;
+  font-weight: bold;
+  width: 20px;
+  height: 20px;
+  border-radius: 30px;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.parrafo {
+  margin-top: 15px;
+  color: #8e8490
+}

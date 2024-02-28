@@ -12,20 +12,26 @@ export const Accordion = () => {
   const [currentOption, setIsCurrentOption] = useState("");
 
   const handleSelectItem = (elemento) => {
-    setIsOpenBox((prev) => !prev);
+    if(currentOption === elemento){
+      setIsOpenBox((prev) => !prev);
+    } else {
+      setIsOpenBox(true)
+    }
     setIsCurrentOption(elemento)
   }
 
   return (
     <div className="accordion">
-      <h1>FAQ</h1>
+      <h1>FAQs</h1>
       <div className="accordion-items">
         {dataAccordion.map((elemento, index) => {
           return (
             <div key={index} className="elemento-container">
               <div className="titulo-contenedor">
                 <h3>{elemento.titulo}</h3>
-                <p className="open-items" onClick={() => handleSelectItem(elemento.titulo)}>+</p>
+                <p className="open-items" onClick={() => handleSelectItem(elemento.titulo)}>
+                  {isOpenBox && currentOption === elemento.titulo ? "-" : "+"}
+                </p>
               </div>
               {(isOpenBox && currentOption === elemento.titulo) && (
                 <div className="parrafo">

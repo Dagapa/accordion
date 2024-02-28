@@ -23,6 +23,7 @@
   background-color: #f9eeff;
   box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.35);
   min-height: 500px;
+
 }
 
 .recuadro-principal img {
@@ -42,4 +43,7 @@
   box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.35);
   position: relative;
   top: -80px;
+  width: 510px;
+  height: 480px;
 }
+
