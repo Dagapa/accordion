@@ -1,0 +1,17 @@
+[
+    {   
+        "id": 1,
+        "titulo": "days",
+        "label": "day"
+    },
+    {
+        "id": 2,
+        "titulo": "months",
+        "label": "month"
+    },
+    {
+        "id": 3,
+        "titulo": "years",
+        "label": "year"
+    }
+]
