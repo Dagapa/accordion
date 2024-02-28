@@ -33,10 +33,6 @@
 }
 
 .open-items {
-  cursor: pointer;
-}
-
-.open-items {
   display: flex;
   background-color: #b42af6;
   color: white;
@@ -46,6 +42,7 @@
   border-radius: 30px;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
 }
 
 
