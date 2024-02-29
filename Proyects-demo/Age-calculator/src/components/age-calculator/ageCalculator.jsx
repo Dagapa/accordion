@@ -5,7 +5,7 @@ import data from './data.json'
 export const AgeCalculator = () => {
 
     const [birthDate, setBirthDate] = useState({});
-    const [age, setAge] = useState({ years: 0, months: 0, days: 0 });
+    const [age, setAge] = useState({years: 0,months: 0, days: 0 });
 
     const handleInputChange = (label) => (event) => {
         setBirthDate({
@@ -14,76 +14,62 @@ export const AgeCalculator = () => {
         });
     };
 
-    /*   let arrayDate = Object.values(isAgeValues);
-    let yearBirth = arrayDate[2];
-    let monthBirth = arrayDate[1];
-    let dayBirth = arrayDate[0];
+    const allValuesAreValid = Object.values(birthDate);
 
     const handleAgeCalc = () => {
 
-        if (arrayDate.length === 3) {
+        if(allValuesAreValid.length === 3){
 
-            let todayDate = new Date();
-            let todayDay = todayDate.getDate();
-            let todayMonth = todayDate.getMonth() + 1;
-            let todayYear = todayDate.getFullYear();
+            let today = new Date();
+            let todayDay = today.getDate();
+            let todayMonth = today.getMonth() + 1;
+            let todayYear = today.getFullYear();
 
             let daysOfMonth = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
-            if (dayBirth > todayDay) {
-                todayDay = todayDay + daysOfMonth[todayMonth - 1];
+            if (birthDate.day > todayDay) {
+                todayDay = todayDay + daysOfMonth[todayMonth + 1];
                 todayMonth = todayMonth - 1;
             }
 
-            if (monthBirth > todayMonth) {
+            if (birthDate.month > todayMonth) {
                 todayMonth = todayMonth + 12;
-                todayYear = todayYear - 1
+                todayYear = todayYear - 1;
             }
-            
-            let resultDays = todayDay - dayBirth;
-            let resultMonths = todayMonth - monthBirth;
-            let resultYears = todayYear - yearBirth;
 
-        } else {
-            console.log("ingrese todos los datos")
-        }
+            let years = parseInt(todayYear - birthDate.year);
+            let months = parseInt(todayMonth - birthDate.month);
+            let days = parseInt(todayDay - birthDate.day);
+   
+            setAge({...age, years: years, months: months, days: days})
 
-    }; */
-
-    const handleAgeCalc = () => {
-
-        let today = new Date();
-        let years = today.getFullYear() - birthDate.year;
-        let months = today.getMonth() - birthDate.month;
-        let days = today.getDate() - birthDate.day;
-
-        setAge(years, months, days)
-
-        console.log(years, months, days)
+    } else {
+        console.error("Falta uno de los campos")
+    }
     }
 
-    return (
-        <div className={styles.container}>
-            <div className={styles.container_div_inputs}>
-                {
-                    data.map((elemento, item) => {
-                        return (
-                            <div key={item} className={styles.input}>
-                                <label htmlFor={elemento.titulo} >{elemento.label}</label>
-                                <input type='number' onChange={handleInputChange(elemento.label)}></input>
-                            </div>
-                        )
-                    })
-                }
-                <button className={styles.button} onClick={handleAgeCalc}>↓</button>
-            </div>
-            <div className={styles.container_items}>
+        return (
+            <div className={styles.container}>
+                <div className={styles.container_div_inputs}>
+                    {
+                        data.map((elemento, item) => {
+                            return (
+                                <div key={item} className={styles.input}>
+                                    <label htmlFor={elemento.titulo} >{elemento.label}</label>
+                                    <input type='number' min="0" onChange={handleInputChange(elemento.label)}></input>
+                                </div>
+                            )
+                        })
+                    }
+                    <button className={styles.button} onClick={handleAgeCalc}>↓</button>
+                </div>
+                <div className={styles.container_items}>
 
-            {age.days}<h1><p></p>days</h1>
-            {age.months}<h1><span></span>months</h1>
-            {age.years}<h1><span></span>years</h1>
-                
+                    <h1><span>{(age.days != 0) ? `${age.days}` : "--"}</span>days</h1>
+                    <h1><span>{(age.months != 0) ? `${age.months}` : "--"}</span>months</h1>
+                    <h1><span>{(age.years != 0) ? `${age.years}` : "--"}</span>years</h1>
+
+                </div>
             </div>
-        </div>
-    )
+        )
 }
